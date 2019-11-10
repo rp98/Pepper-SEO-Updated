@@ -1,0 +1,29 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body a {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+.section {
+    width: 100%;
+}
+
+@import 'abstracts';
+@import 'topnav';
+@import 'section--1';
+@import 'section--2';
+@import 'section--3';
+@import 'section--4';
+@import 'section--5';
+@import 'footer';

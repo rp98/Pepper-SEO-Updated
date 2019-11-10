@@ -1,0 +1,44 @@
+.section--3 {
+    position: relative;
+    margin-top: 5%;
+
+    .points {
+        position: relative;
+
+        width: 85%;
+        margin: auto;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+
+        @include mq_custom(300px, 500px) {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        @include mq_custom(700px, 1224px) {
+            width: 60%;
+        }
+
+        &__item {
+            position: relative;
+
+            margin: 3em 0.5em;
+
+            font-family: $text-font;
+            color: $primary-blue;
+            font-weight: 500;
+            line-height: 150%;
+            @include res-font-size(16, 18);
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: -60px;
+                left: 0;
+                height: 50px;
+                width: 50px;
+                background: url('./../../assets/checked.svg') no-repeat;
+            }
+        }
+    }
+}

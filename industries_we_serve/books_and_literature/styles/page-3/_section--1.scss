@@ -1,0 +1,159 @@
+.section--1 {
+    position: relative;
+    height: 100vh;
+
+    display: grid;
+    place-items: center;
+
+    background-image: url('./../../assets/background-3.svg');
+    background-size: cover;
+    @include mq_custom(300px, 1224px) {
+        height: auto;
+    }
+
+    .illustration {
+        position: relative;
+
+        transition: margin-top 0.3s ease-in-out;
+
+        @include mq_dl() {
+            width: 80%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include mq_custom(800px, 1224px) {
+            width: 60%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            margin-top: 20%;
+        }
+        @include mq_custom(300px, 800px) {
+            width: 80%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            margin-top: 20%;
+        }
+
+        .image {
+            position: relative;
+
+            display: grid;
+            align-items: center;
+
+            @include mq_dl() {
+                grid-column: 2;
+                width: 70%;
+                justify-self: right;
+            }
+
+            @include mq_custom(300px, 1224px) {
+                width: 50%;
+                margin: 3em auto;
+                justify-self: center;
+            }
+        }
+
+        .text {
+            position: relative;
+
+            // background-color: $primary-white;
+
+            display: flex;
+            flex-direction: column;
+
+            border-radius: 10px;
+
+            @include mq_dl() {
+                grid-column: 1;
+
+                justify-content: center;
+                align-items: flex-start;
+                padding: 1em 5em 1em 3em;
+
+                border-radius: 10px;
+            }
+
+            @include mq_custom(300px, 1224px) {
+                padding: 2em;
+                align-items: center;
+            }
+
+            .heading {
+                position: relative;
+
+                color: $primary-blue;
+                font-family: $title-font;
+                font-weight: 600;
+                @include res-font-size(22, 52);
+                text-transform: uppercase;
+
+                @include mq_dl() {
+                    padding-top: 0.7em;
+                    padding-bottom: 0.3em;
+                    text-align: left;
+                }
+
+                @include mq_custom(300px, 1224px) {
+                    padding: 1em 0;
+                    text-align: center;
+                }
+            }
+
+            .desc {
+                position: relative;
+
+                color: $primary-blue;
+                font-family: $text-font;
+                font-weight: 400;
+                @include res-font-size(16, 26);
+                @include mq_dl() {
+                    padding-top: 0.3em;
+                    padding-bottom: 1em;
+                    text-align: left;
+                }
+                @include mq_custom(300px, 1224px) {
+                    padding: 1em 0;
+                    text-align: center;
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    height: 3px;
+                    width: 40%;
+                    background-color: #fff;
+
+                    @include mq_custom(300px, 1224px) {
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                }
+            }
+
+            .caption {
+                position: relative;
+
+                color: $primary-blue;
+                font-family: $text-font;
+                font-weight: 600;
+                @include res-font-size(12, 18);
+                text-transform: uppercase;
+
+                @include mq_dl() {
+                    padding: 1em 0;
+                    text-align: left;
+                }
+                @include mq_custom(300px, 1224px) {
+                    padding: 1em 0;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

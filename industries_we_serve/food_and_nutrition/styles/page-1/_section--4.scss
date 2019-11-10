@@ -1,0 +1,130 @@
+.section--4 {
+    position: relative;
+
+    .faq {
+        position: relative;
+
+        width: 60%;
+        margin: auto;
+
+        text-align: center;
+
+        @include mq_custom(300px, 700px) {
+            width: 80%;
+        }
+
+        .heading {
+            position: relative;
+
+            font-family: $title-font;
+            color: $primary-blue;
+            @include res-font-size(26, 52);
+            font-weight: 600;
+            text-transform: uppercase;
+
+            margin: 1.5em 0;
+        }
+
+        .answers {
+            position: relative;
+
+            display: flex;
+            flex-direction: column;
+
+            margin: 1.5em 0;
+
+            &__item {
+                position: relative;
+                margin: 1em 0;
+                box-shadow: #00000029 0px 0px 16px;
+
+                &:hover,
+                &:focus {
+                    .answers__item__visible::before {
+                        @include mq_custom(300px, 1224px) {
+                            transform: translateX(-50%) rotate(45deg);
+                        }
+                        @include mq_dl() {
+                            transform: translateY(-50%) rotate(45deg);
+                        }
+                    }
+
+                    .answers__item__collapsible {
+                        max-height: 200px;
+                        padding: 2em 0;
+
+                        &::before {
+                            width: 70%;
+                        }
+                    }
+                }
+                &__visible {
+                    position: relative;
+                    padding: 2em 0;
+
+                    background: #f9f9f9;
+
+                    font-family: $text-font;
+                    color: $primary-blue;
+                    font-weight: 600;
+                    @include res-font-size(14, 20);
+
+                    &::before {
+                        content: '+';
+                        position: absolute;
+
+                        color: $secondary-yellow;
+
+                        transition: all 0.3s ease-in-out;
+
+                        @include mq_dl() {
+                            right: 0.5em;
+                            top: 50%;
+                            transform: translateY(-50%) rotate(0deg);
+                            font-size: 50px;
+                        }
+
+                        @include mq_custom(300px, 1224px) {
+                            left: 50%;
+                            bottom: 0;
+                            transform: translateX(-50%) rotate(0deg);
+                            font-size: 25px;
+                        }
+                    }
+                }
+
+                &__collapsible {
+                    position: relative;
+                    max-height: 0;
+                    overflow: hidden;
+                    background: #f9f9f9;
+
+                    transition: all 0.5s ease-in-out;
+
+                    font-family: $text-font;
+                    color: $primary-blue;
+                    font-weight: 600;
+                    @include res-font-size(14, 20);
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 50%;
+                        height: 2px;
+                        transform: translateX(-50%);
+                        width: 0;
+                        background-color: #00000029;
+                        transition: all 0.5s ease-in-out;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes increaseHeight {
+    from {
+        height: 0px;
+    }
+}

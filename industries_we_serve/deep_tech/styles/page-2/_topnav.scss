@@ -1,0 +1,330 @@
+.top_nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+
+    background: $nav-gray;
+    z-index: 100;
+    box-shadow: 0px 3px 39px #16224f78;
+
+    @include mq_dl() {
+        .options {
+            position: relative;
+            width: 95%;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(2, max-content) 1fr repeat(
+                    2,
+                    max-content
+                );
+            align-items: center;
+
+            font-family: $text-font;
+
+            .logo {
+                position: relative;
+
+                grid-column: 1;
+                padding: 10px 0;
+
+                img {
+                    width: 40px;
+                }
+            }
+
+            .page_links {
+                position: relative;
+                grid-column: 2;
+                height: 100%;
+                margin: 0 3em;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &__item {
+                    position: relative;
+
+                    color: $primary-white;
+                    @include res-font-size(14, 18);
+                    text-transform: uppercase;
+
+                    margin: 0 1rem;
+                    height: 100%;
+
+                    display: flex;
+                    align-items: center;
+
+                    cursor: pointer;
+
+                    &:hover,
+                    &:focus {
+                        &::before {
+                            width: 100%;
+                        }
+                    }
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 0;
+                        background: $primary-yellow;
+                        transition: width 0.3s ease-in-out;
+                        height: 4px;
+                    }
+                }
+            }
+
+            .external-links {
+                position: relative;
+                grid-column: -2;
+
+                display: flex;
+                height: 100%;
+
+                &__item {
+                    position: relative;
+
+                    color: $primary-white;
+                    @include res-font-size(12, 18);
+
+                    margin: 0 1rem;
+                    height: 100%;
+
+                    display: flex;
+                    align-items: center;
+
+                    cursor: pointer;
+
+                    &:hover,
+                    &:focus {
+                        &::before {
+                            width: 100%;
+                        }
+                    }
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 0;
+                        background: $primary-yellow;
+                        transition: width 0.3s ease-in-out;
+                        height: 4px;
+                    }
+                }
+            }
+
+            .login {
+                position: relative;
+                grid-column: -1;
+
+                margin: 0 1em;
+
+                button {
+                    background-color: $login-green;
+                    border: 0px;
+                    border-radius: 5px;
+
+                    cursor: pointer;
+
+                    color: $nav-gray;
+                    @include res-font-size(14, 18);
+                    font-weight: 500;
+
+                    padding: 5px 15px;
+                    box-shadow: 3px 3px 6px #7ad36f5e;
+                }
+            }
+
+            .burger {
+                display: none;
+            }
+        }
+    }
+
+    @include mq_custom(300px, 1224px) {
+        .options {
+            position: relative;
+            width: 95%;
+            height: 60px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: max-content 1fr max-content;
+            place-items: center;
+
+            font-family: $text-font;
+
+            .logo {
+                position: relative;
+
+                grid-column: 1;
+
+                img {
+                    width: 40px;
+                }
+            }
+
+            .burger {
+                grid-column: -1;
+                width: 25px;
+                position: relative;
+                z-index: 11;
+                transform: rotate(0deg);
+                transition: 0.5s ease-in-out;
+                cursor: pointer;
+
+                span {
+                    display: block;
+                    position: relative;
+                    height: 3px;
+                    width: 100%;
+                    background: $primary-blue;
+                    border-radius: 9px;
+                    opacity: 1;
+                    left: 0;
+                    transform: rotate(0deg);
+                    transition: 0.25s ease-in-out;
+
+                    &:nth-child(1) {
+                        margin-top: 0px;
+                    }
+
+                    &:nth-child(2) {
+                        margin-top: 5px;
+                    }
+                    &:nth-child(3) {
+                        margin-top: -3px;
+                    }
+                    &:nth-child(4) {
+                        margin-top: 5px;
+                    }
+                }
+            }
+
+            .page_links,
+            .external-links,
+            .login {
+                display: none;
+            }
+        }
+    }
+}
+
+.ss-slide_bar {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    width: 100vw;
+    height: calc(100vh - 60px);
+    z-index: 100;
+
+    width: calc(400px + (400 - 300) * ((100vw - 300px) / (1224 - 300)));
+
+    background: $nav-gray;
+
+    transform: translateX(100%);
+    transition: 0.5s ease-in-out;
+
+    @include mq_dl() {
+        display: none;
+    }
+
+    @include mq_custom(300px, 600px) {
+        width: 100vw;
+    }
+
+    .page_links {
+        position: relative;
+        height: 100%;
+        padding: 5rem 0;
+
+        display: grid;
+        grid-template-rows: repeat(8, 1fr);
+        place-items: center;
+        font-family: $title-font;
+
+        &__item {
+            position: relative;
+            cursor: pointer;
+
+            width: 150px;
+            margin: 5px 0;
+            height: calc(100% - 10px);
+
+            display: grid;
+            place-items: center;
+
+            text-align: center;
+
+            &:hover {
+                &::before {
+                    transform: scale(1, 1);
+                }
+
+                &::after {
+                    transform: scale(1, 1);
+                }
+            }
+
+            &::before {
+                content: '';
+                display: block;
+                background-color: rgba($color: #000, $alpha: 0);
+                position: absolute;
+                bottom: 0px;
+                top: 0px;
+                left: 0px;
+                right: 0px;
+                transform: scale(0, 1);
+                transition: transform 500ms ease-in-out;
+                border-top: 1px solid $primary-blue;
+                border-bottom: 1px solid $primary-blue;
+            }
+
+            &::after {
+                content: '';
+                display: block;
+                background-color: rgba($color: #000, $alpha: 0);
+                position: absolute;
+                bottom: 0px;
+                top: 0px;
+                left: 0px;
+                right: 0px;
+                transform: scale(1, 0);
+                transition: transform 500ms ease-in-out;
+                border-left: 1px solid $primary-blue;
+                border-right: 1px solid $primary-blue;
+            }
+        }
+    }
+}
+
+.burger--open span {
+    &:nth-child(1) {
+        width: 0% !important;
+        left: 50% !important;
+    }
+    &:nth-child(2) {
+        transform: rotate(45deg) !important;
+    }
+    &:nth-child(3) {
+        transform: rotate(-45deg) !important;
+    }
+    &:nth-child(4) {
+        width: 0% !important;
+        left: 50% !important;
+    }
+}
+
+.slide_bar--open {
+    transform: translateX(0);
+}

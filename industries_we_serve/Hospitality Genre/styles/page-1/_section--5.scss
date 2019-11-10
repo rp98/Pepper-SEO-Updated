@@ -1,0 +1,151 @@
+.section--5 {
+    position: relative;
+    background-color: $primary-green;
+
+    padding: 0 0 4em 0;
+
+    .illustration {
+        position: relative;
+        width: 80%;
+        margin: auto;
+
+        display: grid;
+        grid-template-columns: 40% 60%;
+
+        @include mq_custom(300px, 1224px) {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+
+            @include mq_custom(300px, 400px) {
+                width: 80%;
+            }
+
+            .image {
+                align-self: center;
+            }
+        }
+
+        .image {
+            position: relative;
+
+            width: 70%;
+            margin-left: 0;
+
+            @include mq_custom(300px, 1224px) {
+                align-self: center;
+                width: 40%;
+            }
+        }
+
+        .testimonials {
+            position: relative;
+            text-align: center;
+
+            margin-top: 10%;
+
+            background-color: #f4f4f4;
+            border-radius: 10px;
+
+            .heading {
+                position: relative;
+
+                font-family: $title-font;
+                color: $primary-blue;
+                @include res-font-size(32, 68);
+                font-weight: 600;
+                text-transform: uppercase;
+
+                padding: 0.7em 0 0.4em 0;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 40%;
+                    height: 3px;
+                    background: $primary-blue;
+                }
+            }
+
+            .testimonial {
+                position: relative;
+
+                &__item {
+                    position: relative;
+
+                    .text {
+                        position: relative;
+
+                        width: 80%;
+                        margin: auto;
+
+                        font-family: $text-font;
+                        color: $primary-blue;
+
+                        display: flex;
+                        flex-direction: column;
+
+                        .desc {
+                            position: relative;
+                            font-weight: 400;
+                            @include res-font-size(14, 22);
+                            margin: 2em 0;
+
+                            &::before {
+                                content: '';
+                                background: url('./../../assets/quote.svg')
+                                    no-repeat;
+                                position: absolute;
+                                top: -12px;
+                                left: -18px;
+                                height: 100px;
+                                width: 100px;
+                            }
+
+                            &::after {
+                                content: '';
+                                background: url('./../../assets/quote.svg')
+                                    no-repeat;
+                                position: absolute;
+                                transform: rotate(180deg);
+                                bottom: -12px;
+                                right: -18px;
+                                height: 100px;
+                                width: 100px;
+                            }
+                        }
+
+                        .name {
+                            position: relative;
+                            font-weight: 600;
+                            @include res-font-size(16, 28);
+                            padding: 1em 0 5px 0;
+                        }
+
+                        .company {
+                            position: relative;
+                            font-weight: 500;
+                            @include res-font-size(16, 24);
+                            padding: 5px 0 0.7em 0;
+
+                            &::before {
+                                content: '';
+                                position: absolute;
+                                position: absolute;
+                                bottom: 0;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                width: 10%;
+                                height: 3px;
+                                background: $primary-blue;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

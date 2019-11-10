@@ -1,0 +1,177 @@
+.section--1 {
+    position: relative;
+    height: 100vh;
+
+    display: grid;
+    place-items: center;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 50%;
+        background: #16224f 0% 0% no-repeat padding-box;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 2px;
+        width: 40%;
+        background: $primary-blue;
+    }
+
+    @include mq_custom(300px, 1224px) {
+        height: auto;
+    }
+
+    .illustration {
+        position: relative;
+
+        transition: margin-top 0.3s ease-in-out;
+
+        @include mq_dl() {
+            width: 80%;
+            margin: auto;
+            display: grid;
+            height: 100%;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include mq_custom(800px, 1224px) {
+            width: 60%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            margin-top: 20%;
+        }
+        @include mq_custom(300px, 800px) {
+            width: 80%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            margin-top: 20%;
+        }
+
+        .image {
+            text-align: center;
+            position: relative;
+
+            display: grid;
+            align-items: center;
+
+            @include mq_dl() {
+                grid-column: 1;
+                width: 70%;
+                justify-self: center;
+            }
+
+            @include mq_custom(300px, 1224px) {
+                width: 50%;
+                margin: 3em auto;
+                justify-self: center;
+            }
+        }
+
+        .text {
+            position: relative;
+
+            // background-color: $primary-white;
+
+            display: flex;
+            flex-direction: column;
+
+            border-radius: 10px;
+
+            @include mq_dl() {
+                grid-column: 2;
+
+                justify-content: center;
+                align-items: center;
+                padding: 1em 5em 1em 3em;
+
+                border-radius: 10px;
+            }
+
+            @include mq_custom(300px, 1224px) {
+                padding: 2em;
+                align-items: center;
+            }
+
+            .heading {
+                position: relative;
+
+                color: $primary-blue;
+                font-family: $title-font;
+                font-weight: 600;
+                @include res-font-size(22, 52);
+                text-transform: uppercase;
+                text-align: center;
+
+                @include mq_dl() {
+                    padding: 0.7em 0;
+                }
+
+                @include mq_custom(300px, 1224px) {
+                    padding: 1em 0;
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    height: 3px;
+                    width: 40%;
+                    background-color: $primary-blue;
+
+                    @include mq_custom(300px, 1224px) {
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                }
+            }
+
+            .desc {
+                position: relative;
+
+                color: $primary-blue;
+                font-family: $text-font;
+                font-weight: 400;
+                @include res-font-size(16, 26);
+                text-align: center;
+
+                @include mq_dl() {
+                    padding: 1em 0;
+                }
+                @include mq_custom(300px, 1224px) {
+                    padding: 1em 0;
+                }
+            }
+
+            .caption {
+                position: relative;
+
+                color: #3fb777;
+                font-family: $text-font;
+                font-weight: 600;
+                @include res-font-size(12, 18);
+                text-transform: uppercase;
+                text-align: center;
+
+                @include mq_dl() {
+                    padding: 1em 0;
+                }
+                @include mq_custom(300px, 1224px) {
+                    padding: 1em 0;
+                }
+            }
+        }
+    }
+}
